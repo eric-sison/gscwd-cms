@@ -1,6 +1,6 @@
 "use client";
 
-import { signIn } from "@/libraries/signin";
+import { signIn } from "@/libs/logto";
 import { useRouter } from "next/navigation";
 
 const SignIn = () => {

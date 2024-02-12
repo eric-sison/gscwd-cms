@@ -1,6 +1,6 @@
-export const serialize = (urlParams: Record<string, string>) => {
-  var str = [];
-  for (var p in urlParams)
+export const serializeUrlParams = (urlParams: Record<string, string>) => {
+  const str = [];
+  for (const p in urlParams)
     if (urlParams.hasOwnProperty(p)) {
       str.push(encodeURIComponent(p) + "=" + encodeURIComponent(urlParams[p]));
     }

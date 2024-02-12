@@ -1,6 +1,7 @@
 "use server";
 
-import { getCookie, logtoClient, setCookies } from "./logto";
+import { logtoClient } from "./client";
+import { getCookie, setCookies } from "./cookiesHandler";
 
 export const signOut = async () => {
   const url = await logtoClient.handleSignOut(getCookie());

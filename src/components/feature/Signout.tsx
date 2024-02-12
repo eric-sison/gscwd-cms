@@ -1,6 +1,6 @@
 "use client";
 
-import { signOut } from "@/libraries/sign-out";
+import { signOut } from "@/libs/logto";
 import { useRouter } from "next/navigation";
 
 const SignOut = () => {

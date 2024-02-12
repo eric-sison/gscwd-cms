@@ -1,15 +1,15 @@
 import SignOut from "@/components/feature/Signout";
-import { getLogtoContext } from "@/libraries/get-logto-context";
+import { getLogtoContext } from "@/libs/logto";
 import { redirect } from "next/navigation";
 
 export default async function Home() {
-  const { isAuthenticated, claims } = await getLogtoContext();
-
-  console.log(isAuthenticated);
+  const { isAuthenticated, claims, accessToken } = await getLogtoContext();
 
   if (!isAuthenticated) {
     redirect("/auth");
   }
+
+  console.log(claims, accessToken);
 
   return (
     <main className="flex h-screen w-screen items-center justify-center">

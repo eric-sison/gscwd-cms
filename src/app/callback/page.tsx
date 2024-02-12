@@ -1,26 +1,23 @@
 "use client";
 
-import { handleSignIn } from "@/libraries/handle-signin";
+import { handleSignIn } from "@/libs/logto";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 
-type Props = {
+type SignInCallbackProps = {
   searchParams: Record<string, string>;
 };
 
-export default function Callback({ searchParams }: Props) {
-  //console.log(typeof searchParams);
+export default function SignInCallback({ searchParams }: SignInCallbackProps) {
   const router = useRouter();
-  const redirectinRef = useRef(false);
+  const redirectingRef = useRef(false);
 
   useEffect(() => {
-    if (redirectinRef.current) {
-      return;
-    }
-    redirectinRef.current = true;
-    handleSignIn(searchParams).then(() => {
-      router.push("/");
-    });
+    if (redirectingRef.current) return;
+
+    redirectingRef.current = true;
+
+    handleSignIn(searchParams).then(() => router.push("/"));
   }, [router, searchParams]);
 
   return <div>Signing in...</div>;
