@@ -1,9 +1,11 @@
-import SignIn from "@/components/feature/Signin";
+import { SignInRedirect } from "@/components/features";
+import { getLogtoContext } from "@/libs/logto";
+import { redirect } from "next/navigation";
 
-export default function Login() {
-  return (
-    <main className="flex h-screen w-screen items-center justify-center">
-      <SignIn />
-    </main>
-  );
+export default async function SignIn() {
+  const { isAuthenticated } = await getLogtoContext();
+
+  if (isAuthenticated) redirect("/");
+
+  return <SignInRedirect />;
 }

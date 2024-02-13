@@ -7,6 +7,6 @@ export const logtoClient = new LogtoClient({
   baseUrl: process.env.LOGTO_BASE_URL!,
   cookieSecret: process.env.COOKIE_SECRET!,
   cookieSecure: process.env.NODE_ENV === "production",
-  resources: ["http://localhost:3784/api"],
-  scopes: ["read:order"],
+  // resources: ["http://localhost:3784/api"],
+  // scopes: ["read:order"],
 });
